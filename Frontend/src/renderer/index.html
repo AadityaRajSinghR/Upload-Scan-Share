@@ -7,15 +7,8 @@
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
 
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
-             connect-src 'self' https://www.virustotal.com https://bigfiles.virustotal.com; 
-             script-src 'self'; 
-             style-src 'self' 'unsafe-inline'; 
-             img-src 'self' data:;">
-
-
-
-
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; connect-src 'self' http://localhost:3000 https://www.virustotal.com https://bigfiles.virustotal.com; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:" />
 
   <link href="./assets/main.css" type="text/css" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/DragAndDrop.css">
@@ -43,16 +36,19 @@
                     </span>
                   </div>
                 </div>
-                <div id="selectedFiles" class="mb-3 kb-attach-box"></div>
+                <div id="selectedFiles" class="mb-3"></div>
                 <div class="kb-buttons-box">
                   <button type="submit" id="submit" class="btn btn-primary form-submit">
                     Upload
                   </button>
                 </div>
               </form>
-              <div id="uploadedFiles" class="pt-5 kb-attach-box">
+              <div id="uploadedFiles" class="flex flex-col pt-5"></div>
 
+              <div id="msg_box">
+                
               </div>
+
             </div>
           </div>
         </div>
@@ -60,10 +56,9 @@
     </div>
   </div>
 
-
-
   <script type="module" src="./src/renderer.js"></script>
   <script type="module" src="./src/DragAndDrop.js"></script>
+  <script type="module" src="./src/sendFile.js"></script>
 </body>
 
 </html>
