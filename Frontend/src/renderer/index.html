@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Electron</title>
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+             connect-src 'self' https://www.virustotal.com https://bigfiles.virustotal.com; 
+             script-src 'self'; 
+             style-src 'self' 'unsafe-inline'; 
+             img-src 'self' data:;">
+
+
+
+
+
+  <link href="./assets/main.css" type="text/css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/DragAndDrop.css">
+</head>
+
+<body>
+  <div class="fileupload-view">
+    <div class="m-0 row justify-content-center">
+      <div class="col-md-6">
+        <div class="mt-5 card">
+          <div class="card-body">
+            <div class="kb-data-box">
+              <div class="kb-modal-data-title">
+                <div class="kb-data-title">
+                  <h6>Upload, Scan, Send</h6>
+                </div>
+              </div>
+              <form id="fileUploadForm">
+                <div class="kb-file-upload">
+                  <div class="file-upload-box">
+                    <input type="file" id="fileInput" class="file-upload-input" />
+                    <span>
+                      Drag and drop or
+                      <span class="file-link">Choose your files</span>
+                    </span>
+                  </div>
+                </div>
+                <div id="selectedFiles" class="mb-3 kb-attach-box"></div>
+                <div class="kb-buttons-box">
+                  <button type="submit" id="submit" class="btn btn-primary form-submit">
+                    Upload
+                  </button>
+                </div>
+              </form>
+              <div id="uploadedFiles" class="pt-5 kb-attach-box">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script type="module" src="./src/renderer.js"></script>
+  <script type="module" src="./src/DragAndDrop.js"></script>
+</body>
+
+</html>
