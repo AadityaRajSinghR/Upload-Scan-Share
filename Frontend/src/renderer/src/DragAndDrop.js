@@ -25,66 +25,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
       fileDiv.innerHTML = `
       <div class="kb-attach-box flex">
-                ${
-                  file.type.match(/.(jpg|jpeg|png|gif|svg)$/i)
-                    ? `<div class="file-image"><img src="${file.image}" alt="${file.name}"></div>`
-                    : `<div class="file-image"><i>${file.name.split(".").pop()}</i></div>`
-                }
-                <div class="file-detail">
-                    <h6>${file.name}</h6>
-                    <p>
-                        <span>Size: ${file.size}</span>
-                        <span class="ml-2">Modified: ${file.modified}</span>
-                    </p>
-                    <div class="file-actions">
-                        <button type="button" class="file-action-btn" id="detete" data-id="${file.id}" data-type="${isUploaded ? "uploaded" : "selected"}">Delete</button>
-                      <span id='status'>  ${isUploaded ? `Scan...` : ""}<span>
-                    </div>
-                </div>
-                </div>
-                <!-- Form Group -->
-                <div id="passbox" hidden >
-                  <div class="relative w-full my-2">
-                    <div class="absolute inset-y-0 right-0 flex items-center px-2">
-                      <input class="hidden js-password-toggle" id="toggle" type="checkbox" />
-                      <label
-                        class="px-2 py-1 font-mono text-sm text-gray-600 bg-gray-300 rounded cursor-pointer hover:bg-gray-400 js-password-label"
-                        for="toggle"><i class="ri-eye-line"></i></label>
-                    </div>
-                    <input
-                      class="w-full px-3 py-3 pr-16 font-mono leading-tight text-gray-700 bg-transparent border border-gray-300 rounded appearance-none focus:outline-none focus:border-indigo-700 js-password"
-                      id="password" type="password" placeholder="Set Password" autocomplete="off" />
-                  </div>
+        ${file.type.match(/.(jpg|jpeg|png|gif|svg)$/i)
+          ? `<div class="file-image"><img src="${file.image}" alt="${file.name}"></div>`
+          : `<div class="file-image"><i>${file.name.split(".").pop()}</i></div>`
+        }
+          <div class="file-detail">
+        <h6>${file.name}</h6>
+        <p>
+        <span>Size: ${file.size}</span>
+        <span class="ml-2">Modified: ${file.modified}</span>
+        </p>
+        <div class="file-actions">
+        <button type="button" class="file-action-btn" id="detete" data-id="${file.id}" data-type="${isUploaded ? "uploaded" : "selected"}">Delete</button>
+          <span id='status'>  ${isUploaded ? `Scan...` : ""}<span>
+        </div>
+        </div>
+          </div>
+        <!-- Form Group -->
+        <div id="passbox" hidden >
+        <form id="shareForm">
+          <div class="relative w-full my-2">
+            <div class="absolute inset-y-0 right-0 flex items-center px-2">
+          <input class="hidden js-password-toggle" id="toggle" type="checkbox" />
+          <label
+            class="px-2 py-1 font-mono text-sm text-gray-600 bg-gray-300 rounded cursor-pointer hover:bg-gray-400 js-password-label"
+            for="toggle"><i class="ri-eye-line"></i></label>
+            </div>
+            <input
+          class="w-full px-3 py-3 pr-16 font-mono leading-tight text-gray-700 bg-transparent border border-gray-300 rounded appearance-none focus:outline-none focus:border-indigo-700 js-password"
+          id="password" type="password" placeholder="Set Password" autocomplete="off" required />
+          </div>
 
-                  <!-- Time set -->
-                  <h6>Set Expiry Time (HR:MIN): </h6>
-                  <div class="inline-flex p-2 text-lg border rounded-md shadow-lg">
-                    <!-- Hours Dropdown -->
-                    <select id="hr" class="px-2 bg-black outline-none appearance-none custom-select">
-                      ${Array.from({ length: 24 }, (_, i) => {
-                        const value = i.toString().padStart(2, "0");
-                        return `<option value="${value}">${value}</option>`;
-                      }).join("")}
-                    </select>
-
-                    <span class="px-2">:</span>
-
-                    <!-- Minutes Dropdown -->
-                    <select id="min" class="px-2 bg-black outline-none appearance-none custom-select">
-                      ${Array.from({ start: 1, length: 59 }, (_, i) => {
-                        i = i + 1;
-                        const value = i.toString().padStart(2, "0");
-                        return `<option value="${value}">${value}</option>`;
-                      }).join("")}
-                    </select>
-                  </div>
-                  <!-- End Form Group -->
-                  <button type="button" id="share" class="btn btn-primary form-submit">
-                    Share File
-                  </button>
-                </div>
-                
-            `;
+          <!-- Time set -->
+          <h6>Set Expiry Time (HR:MIN): </h6>
+          <div class="inline-flex p-2 text-lg border rounded-md shadow-lg">
+            <!-- Hours Dropdown -->
+            <select id="hr" class="px-4 bg-[#000000af] outline-none appearance-none rounded-md text-cente custom-select" required>
+          ${Array.from({ length: 24 }, (_, i) => {
+            const value = i.toString().padStart(2, "0");
+            return `<option value="${value}">${value}</option>`;
+          }).join("")}
+            </select>
+            <span class="px-2">:</span>
+            <!-- Minutes Dropdown -->
+            <select id="min" class="px-4 bg-[#000000af] outline-none appearance-none rounded-md text-center custom-select" required>
+          ${Array.from({ start: 1, length: 59 }, (_, i) => {
+            i = i + 1;
+            const value = i.toString().padStart(2, "0");
+            return `<option value="${value}">${value}</option>`;
+          }).join("")}
+            </select>
+          </div>
+          <!-- End Form Group -->
+          <button type="submit" class="btn btn-primary py-2 px-7 text-lg  ml-3" id="share-btn">
+            Share File
+          </button>
+        </form>
+        </div>
+        `;
       container.appendChild(fileDiv);
     });
   };
@@ -153,6 +151,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } else {
       alert("Please select files to upload.");
+    }
+  });
+
+  // Add event listener for hour select
+  document.body.addEventListener("change", (e) => {
+    if (e.target.id === "hr") {
+      const minSelect = document.getElementById('min');
+      minSelect.innerHTML = e.target.value > '00' 
+        ? Array.from({length: 60}, (_, i) => `<option value=${i.toString().padStart(2, '0')}>${i.toString().padStart(2, '0')}</option>`).join('')
+        : Array.from({length: 59}, (_, i) => `<option value=${(i+1).toString().padStart(2, '0')}>${(i+1).toString().padStart(2, '0')}</option>`).join('');
     }
   });
 

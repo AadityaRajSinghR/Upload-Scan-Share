@@ -15,44 +15,39 @@
 </head>
 
 <body>
-  <div class="fileupload-view">
-    <div class="m-0 row justify-content-center">
-      <div class="col-md-6">
-        <div class="mt-5 card">
-          <div class="card-body">
-            <div class="kb-data-box">
-              <div class="kb-modal-data-title">
-                <div class="kb-data-title">
-                  <h6>Upload, Scan, Send</h6>
-                </div>
-              </div>
-              <form id="fileUploadForm">
-                <div class="kb-file-upload">
-                  <div class="file-upload-box">
-                    <input type="file" id="fileInput" class="file-upload-input" />
-                    <span>
-                      Drag and drop or
-                      <span class="file-link">Choose your files</span>
-                    </span>
-                  </div>
-                </div>
-                <div id="selectedFiles" class="mb-3"></div>
-                <div class="kb-buttons-box">
-                  <button type="submit" id="submit" class="btn btn-primary form-submit">
-                    Upload
-                  </button>
-                </div>
-              </form>
-              <div id="uploadedFiles" class="flex flex-col pt-5"></div>
+  <div class="w-1/2 mx-auto my-8 py-8 max-w-[680px] h-[90vh]">
 
-              <div id="msg_box">
-                
-              </div>
+    <div class="max-h-full p-8 card">
 
+        <div class="kb-data-box">
+          <div class="kb-modal-data-title">
+            <div class="kb-data-title">
+              <h6>Upload, Scan, Send</h6>
             </div>
           </div>
+          
+          <form id="fileUploadForm">
+            <div class="kb-file-upload">
+              <div class="file-upload-box">
+                <input type="file" id="fileInput" class="file-upload-input" />
+                <span>
+                  Drag and drop or
+                  <span class="file-link">Choose your files</span>
+                </span>
+              </div>
+            </div>
+            <div id="selectedFiles" class="mb-3"></div>
+            <div class="kb-buttons-box">
+              <button type="submit" id="submit" class="btn btn-primary form-submit">
+                Upload
+              </button>
+            </div>
+          </form>
+
+          <div id="uploadedFiles" class="flex flex-col pt-5"></div>
+          <div id="msg_box"></div>
+          
         </div>
-      </div>
     </div>
   </div>
 

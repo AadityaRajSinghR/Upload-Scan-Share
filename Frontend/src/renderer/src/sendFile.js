@@ -1,8 +1,14 @@
 function sendFile(file) {
   // Upload file for sending
-  const shareButton = document.getElementById("share");
-  shareButton.addEventListener("click", async () => {
+  const shareForm = document.getElementById("shareForm");
+  shareForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    document.getElementById("share-btn").disabled = true;
     const password = document.getElementById("password").value;
+    if (password === "") {
+      alert("Please enter a password");
+      return;
+    }
     const HR = document.getElementById("hr").value;
     const MIN = document.getElementById("min").value;
 
@@ -20,25 +26,29 @@ function sendFile(file) {
     try {
       const res = await fetch("http://localhost:3000/upload", options);
       const data = await res.json();
-      console.log(data);
-      createsharebox();
+      // console.log(data);  
+      createsharebox(data);
     } catch (err) {
       console.error("Error uploading file:", err);
     }
   });
 }
 
-function createsharebox() {
+function createsharebox({ message, downloadLink }) {
   const sharebox = document.getElementById("msg_box");
   sharebox.innerHTML = `
-   <div id="msg" class="alert alert-success" role="alert">
+   <div id="msg" class="alert alert-success mt-3" role="alert">
                   <span id="msg_text">
-                    <span id="msg_text">File uploaded successfully</span>
+                    <span id="msg_text">${message}</span>
                   </span>
                 </div>
                 <div class="clipboard">
-                  <input class="copy-input" value="mail.com" id="copyClipboard" readonly>
+                  <input class="copy-input" value="${downloadLink}" id="copyClipboard" readonly>
+                  <i class="ri-file-copy-line copy-btn"></i>
                 </div>
+                <div class="flex justify-center items-center mt-5">
+        <img src="../assets/image.png" class="w-36">
+    </div>
                 <div id="copied-success" class="copied">
                   <span>Copied!</span>
                 </div>
@@ -46,8 +56,8 @@ function createsharebox() {
   copyclipboard();
 }
 function copyclipboard() {
-  document.getElementById("copyClipboard").addEventListener("click", () => {
-    let copyText = document.getElementById("copyClipboard");
+  let copyText = document.getElementById("copyClipboard");
+  copyText.addEventListener("click", () => {
     let copySuccess = document.getElementById("copied-success");
     copyText.select();
     copyText.setSelectionRange(0, 99999);

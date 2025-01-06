@@ -1,4 +1,3 @@
-
 // Import the sendFile.js file
 import { sendFile } from "./sendFile.js";
 
@@ -79,24 +78,23 @@ fileInput.addEventListener("change", function (event) {
 // Toggle password visibility
 function toggleEye() {
   /* eslint-disable prettier/prettier */
-const passwordToggle = document.querySelector(".js-password-toggle");
+  const passwordToggle = document.querySelector(".js-password-toggle");
 
-passwordToggle.addEventListener("change", function () {
-  const password = document.querySelector(".js-password"),
-    passwordLabel = document.querySelector(".js-password-label");
+  passwordToggle.addEventListener("change", function () {
+    const password = document.querySelector(".js-password"),
+      passwordLabel = document.querySelector(".js-password-label");
 
-  if (password.type === "password") {
-    password.type = "text";
-    passwordLabel.innerHTML = `<i class="ri-eye-off-line"></i>`;
-  } else {
-    password.type = "password";
-    passwordLabel.innerHTML = `<i class="ri-eye-line"></i>`;
-  }
+    if (password.type === "password") {
+      password.type = "text";
+      passwordLabel.innerHTML = `<i class="ri-eye-off-line"></i>`;
+    } else {
+      password.type = "password";
+      passwordLabel.innerHTML = `<i class="ri-eye-line"></i>`;
+    }
 
-  password.focus();
-});
+    password.focus();
+  });
 }
-
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
