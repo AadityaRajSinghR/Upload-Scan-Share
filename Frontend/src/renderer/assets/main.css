@@ -123,16 +123,11 @@ a:focus {
 }
 
 .file-atc-box {
-  /* display: flex; */
   align-items: center;
   margin-bottom: 15px;
 }
 
 .file-image {
-  /* width: 130px;
-    min-width: 130px;
-    height: 85px;
-    min-height: 85px; */
   width: 130px;
   height: 85px;
   background-size: cover;
@@ -221,10 +216,8 @@ a:focus {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .custom-select {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 /* ClipBoard copy */
