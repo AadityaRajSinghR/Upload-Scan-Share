@@ -47,7 +47,7 @@ function createsharebox({ message, downloadLink }) {
                   <i class="ri-file-copy-line copy-btn"></i>
                 </div>
                 <div class="flex justify-center items-center mt-5">
-        <img src="../assets/image.png" class="w-36">
+                <img src="https://qrcode.tec-it.com/API/QRCode?data=${downloadLink}&color=%23ffffff&istransparent=True" class="w-36"/>
     </div>
                 <div id="copied-success" class="copied">
                   <span>Copied!</span>
