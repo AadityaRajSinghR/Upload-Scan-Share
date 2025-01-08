@@ -1,7 +1,7 @@
 import { app, shell, BrowserWindow, ipcMain } from "electron";
 import { join } from "path";
 import { electronApp, optimizer, is } from "@electron-toolkit/utils";
-import icon from "../../resources/icon.png?asset";
+import icon from "../../resources/icon1.png";
 import "../renderer/assets/main.css";
 
 function createWindow() {
@@ -16,6 +16,7 @@ function createWindow() {
       preload: join(__dirname, "../preload/index.js"),
       sandbox: false,
     },
+    icon: join(__dirname, "../../resources/icon1.png"),
   });
 
   mainWindow.webContents.session.webRequest.onHeadersReceived(

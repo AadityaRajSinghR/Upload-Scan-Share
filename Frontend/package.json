@@ -1,5 +1,5 @@
 {
-  "name": "myelectron",
+  "name": "secure-file-share-application",
   "version": "1.0.0",
   "description": "A minimal Electron application with JavaScript",
   "main": "./out/main/index.js",

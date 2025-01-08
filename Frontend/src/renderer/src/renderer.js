@@ -8,7 +8,7 @@ async function uploadLargeFile() {
     headers: {
       accept: "application/json",
       "x-apikey":
-        "8e4284f4b15a6c38f3f6c0b8f117a7be99f6434ccdd3b7bca54f705a785c7103",
+        "b7e61bfdd89fa7e4d7d130ac946292e35ef4cb8a31230cff8f9a130cdf8ee1a5",
     },
   };
 
@@ -33,7 +33,7 @@ async function uploadFile(response, file) {
     headers: {
       accept: "application/json",
       "x-apikey":
-        "8e4284f4b15a6c38f3f6c0b8f117a7be99f6434ccdd3b7bca54f705a785c7103",
+        "b7e61bfdd89fa7e4d7d130ac946292e35ef4cb8a31230cff8f9a130cdf8ee1a5",
     },
     body: form,
   };
@@ -53,7 +53,7 @@ async function getFileDetails(url) {
     headers: {
       accept: "application/json",
       "x-apikey":
-        "8e4284f4b15a6c38f3f6c0b8f117a7be99f6434ccdd3b7bca54f705a785c7103",
+        "b7e61bfdd89fa7e4d7d130ac946292e35ef4cb8a31230cff8f9a130cdf8ee1a5",
     },
   };
 
