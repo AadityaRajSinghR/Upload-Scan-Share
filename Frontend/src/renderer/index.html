@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Secure File Share System</title>
+  <title>Secure File Share Application</title>
   <meta http-equiv="Content-Security-Policy"
     content="default-src 'self'; connect-src 'self' http://localhost:3000 https://www.virustotal.com https://bigfiles.virustotal.com ; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://qrcode.tec-it.com" />
   <link href="./assets/main.css" type="text/css" rel="stylesheet" />
@@ -11,7 +11,14 @@
 </head>
 
 <body>
-  <div class="w-1/2 mx-auto my-8 py-8 max-w-[680px] h-[90vh]">
+  <header class="py-2 h-[23vh]">
+    <div class="flex justify-center logo-container">
+      <div style="background-image: url('./assets/Bug.png'); width: 100px; height: 100px; background-size: contain; background-repeat: no-repeat; user-select: none;"></div>
+    </div>
+    <h1 class="mt-2 text-3xl text-center" style="font-family: 'Arial', sans-serif;">Secure File Share Application</h1>
+  </header>
+  
+  <div class="w-1/2 mx-auto my-5 max-w-[680px] h-[73vh]">
 
     <div class="max-h-full p-8 card">
 
