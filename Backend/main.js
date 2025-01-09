@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // MongoDB connection
 function connectDB() {
-    mongoose.connect('mongodb://0.0.0.0:27017/fileshare').then(() => {
+    mongoose.connect('mongodb+srv://user1:1234@cluster0.9wj6q.mongodb.net/fileshare').then(() => {
         console.log('Connected to MongoDB');
     }).catch((error) => {
         console.error('Error connecting to MongoDB:', error);
@@ -80,7 +80,7 @@ app.post('/upload', upload.single('file'), async (req, res) => {
 app.get('/verify/:link', async (req, res) => {
     const file = await File.findOne({ downloadLink: req.params.link });
     if (!file) {
-        res.send('Invalid download link');
+        res.send('File not found or link expired');
     } else {
 
         res.send(`
