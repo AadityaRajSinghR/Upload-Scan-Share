@@ -197,3 +197,37 @@ Secure File Sharing Application is a Desktop application that allows users to up
 - The backend uses Express.js, MongoDB, and Multer for file handling.
 - The frontend uses Electron, Tailwind CSS, and Vite for development and build processes.
 - The application scans files using the VirusTotal API before allowing them to be shared.
+
+
+## Screenshots
+
+### First Interface
+![First Interface](./Images/image1.png)
+
+### File Upload
+![File Upload](./Images/image2.png)
+
+### Virus Scan
+![Virus Scan](./Images/image3.png)
+
+### Secure Sharing
+![Secure Sharing](./Images/image4.png)
+
+### Download Links
+![Download Links](./Images/image5.png)
+
+### Download Window
+![Download Window](./Images/image6.png)
+
+### Invalid Password
+![Invalid Password](./Images/image7.png)
+
+### Scan QR Code (Mobile)
+![Scan QR Code (Mobile)](./Images/image8.png)
+
+### File Expiry
+![File Expiry](./Images/image9.png)
+
+### Detection of Malware
+![Detection of Malware](./Images/image10.png)
+
